@@ -1,0 +1,55 @@
+<div class="col-xs-offset-1 col-xs-11" xmlns="http://www.w3.org/1999/html">
+  <form name="userForm" ng-submit="cc.handleSubmit()" class="course-table form-horizontal" autocomplete="off">
+    <fieldset>
+      <div class="form-group" ng-class="{ 'has-error' : userForm.name.$invalid && !userForm.name.$pristine }">
+        <label for="username">Name</label>
+        <input type="text" id="username" name="name" class="form-control" ng-model="cc.courseModel.name" required placeholder="name">
+        <p ng-show="userForm.name.$invalid && !userForm.name.$pristine" class="help-block">Name required.</p>
+      </div>
+      <div class="form-group" ng-class="{ 'has-error' : userForm.pwd.$invalid && !userForm.pwd.$pristine }">
+        <label for="description">Description</label>
+        <textarea id="description" name="description" class="form-control" ng-model="cc.courseModel.description" required placeholder="description"></textarea>
+        <p ng-show="userForm.description.$invalid && !userForm.description.$pristine" class="help-block">Description required.</p>
+      </div>
+      <div class="form-group" ng-class="{ 'has-error' : userForm.pwd.$invalid && !userForm.pwd.$pristine }">
+        <label for="date">Date</label>
+        <input type="text" id="date" name="date" class="form-control" ng-model="cc.courseModel.date" required placeholder="date">
+        <p ng-show="userForm.date.$invalid && !userForm.date.$pristine" class="help-block">Date required.</p>
+      </div>
+      <div class="form-group" ng-class="{ 'has-error' : userForm.pwd.$invalid && !userForm.pwd.$pristine }">
+        <label for="duration">Duration</label>
+        <input type="text" id="duration" name="duration" class="form-control" ng-model="cc.courseModel.duration" required placeholder="duration (minutes)">
+        <p ng-show="userForm.duration.$invalid && !userForm.duration.$pristine" class="help-block">Duration required.</p>
+      </div>
+      <div class="authors-holder row">
+        <div class="col-xs-4">
+          <h3>Current authors:</h3>
+          <ul class="list-group">
+            <li class="list-group-item" authors-directive ng-repeat="curAuthor in cc.courseModel.authors" ng-click="cc.activeAuthor = curAuthor">{{curAuthor}}</li>
+          </ul>
+        </div>
+        <div class="col-xs-offset-1 col-xs-2 transfer-actions">
+          <h3>Actions:</h3>
+          <div class="text-center btn-group-vertical">
+            <button type="button" class="btn btn-success" ng-click="cc.addAuthor()"><span class="glyphicon glyphicon-chevron-left"></span></button>
+            <button type="button" class="btn btn-warning" ng-click="cc.removeAuthor()"><span class="glyphicon glyphicon-chevron-right"></span></button>
+          </div>
+        </div>
+        <div class="col-xs-4">
+          <h3>All possible authors:</h3>
+          <ul class="list-group">
+            <li class="list-group-item" authors-directive ng-repeat="author in cc.allAuthors" ng-click="cc.activeAuthor = author">{{author}}</li>
+          </ul>
+        </div>
+      </div>
+      <div class="text-center form-group single-course-buttons">
+        <button type="submit" class="btn btn-success" ng-disabled="userForm.$invalid">{{cc.isEditMode ? 'Edit course' : 'Add course'}}</button>
+        <button type="button" class="btn btn-primary" ng-click="cc.returnToHome()">Cancel</button>
+      </div>
+      <div ng-show="userForm.$invalid && !userForm.$pristine" class="text-center text-info">
+        <strong>Please, make sure that your data correct. After this submit button will be available.</strong>
+      </div>
+      <br />
+    </fieldset>
+  </form>
+</div>

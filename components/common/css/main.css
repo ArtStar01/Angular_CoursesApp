@@ -1,0 +1,47 @@
+html,
+body {
+    height: 100%;
+}
+#wrapper {
+    overflow-x: hidden;
+    position: relative;
+    padding-bottom: 35px;
+}
+.page-content {
+    padding: 20px 10px 100px;
+}
+#wrapper,
+.page-content {
+    min-height: 100%;
+}
+.header-menu {
+    text-align: right;
+    padding-bottom: 5px;
+    margin: 0;
+    background-color: #f5f5f5;
+    border-color: #ddd;
+}
+.link-to-courses {
+    margin: 5px 0 0 5px;
+    border-radius: 10px;
+}
+#logout-btn {
+    color: #fff;
+    margin: 5px 5px 0 0;
+    border-radius: 8px;
+}
+.user-profile {
+    cursor: default;
+    font-size: 20px;
+    vertical-align: text-top;
+    margin-right: 25px;
+}
+footer {
+    position: absolute;
+    bottom: 0;
+    cursor: default;
+    display: block;
+    height: 35px;
+    width: 100%;
+    margin-top: -35px;
+}

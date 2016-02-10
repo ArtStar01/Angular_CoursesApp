@@ -1,0 +1,30 @@
+.course-table-thead th,
+.course-row td {
+    vertical-align: middle !important;
+    min-width: 130px;
+}
+.course-heading {
+    display: block;
+    min-width: 100px;
+}
+.course-value {
+    margin-top: 5px;
+}
+.course-value:first-child {
+    margin-top: 0;
+}
+.course-actions:first-child {
+    margin-bottom: 10px;
+}
+.course-actions button {
+    display: block;
+    width: 100px;
+    margin: 0 auto;
+}
+.add-course-holder {
+    margin-bottom: 5px;
+
+}
+.add-course-holder button {
+    font-size: 18px;
+}

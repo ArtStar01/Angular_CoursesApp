@@ -1,0 +1,30 @@
+<section class="row login-holder" ng-controller="AuthenticationController as auth">
+  <div class="col-xs-offset-3 col-xs-6">
+    <form name="userForm" ng-submit="auth.signup()" class="signup form-horizontal" autocomplete="off">
+      <fieldset>
+        <div class="form-group" ng-class="{ 'has-error' : userForm.name.$invalid && !userForm.name.$pristine }">
+          <label for="username">Username</label>
+          <input type="text" id="username" name="name" class="form-control" ng-model="auth.userModel.name" required ng-minlength="4" placeholder="name">
+          <p ng-show="userForm.name.$invalid && !userForm.name.$pristine" class="help-block">You name should have length not less than 4 symbols.</p>
+        </div>
+        <div class="form-group" ng-class="{ 'has-error' : userForm.pwd.$invalid && !userForm.pwd.$pristine }">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="pwd" class="form-control" ng-model="auth.userModel.pwd" required ng-minlength="5" placeholder="password">
+          <p ng-show="userForm.pwd.$invalid && !userForm.pwd.$pristine" class="help-block">You password should have length not less than 5 symbols.</p>
+        </div>
+        <div class="form-group" ng-class="{ 'has-error' : userForm.email.$invalid && !userForm.email.$pristine }">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" class="form-control" ng-model="auth.userModel.email" required placeholder="email">
+          <p ng-show="userForm.email.$invalid && !userForm.email.$pristine" class="help-block">Enter correct email.</p>
+        </div>
+        <div class="text-center form-group">
+          <button type="submit" class="btn btn-large btn-primary" ng-disabled="userForm.$invalid">Sign up</button>&nbsp; or&nbsp;
+          <a href="/Angular_SPA_Courses/#/signin" class="show-signup">Sign in</a>
+        </div>
+        <div ng-show="userForm.$invalid && !userForm.$pristine" class="text-center text-success">
+          <strong>Please, make sure that your data correct. After this submit button will be available.</strong>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+</section>

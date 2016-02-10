@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+
+  <title>{{pageTitle}}</title>
+  <link href="vendors/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
+  <link href="vendors/bootstrap/3.3.2/css/bootstrap-glyphicons.css" rel="stylesheet">
+  <link href="vendors/ng-table/ng-table.min.css" rel="stylesheet">
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="components/common/css/main.css">
+  <link rel="stylesheet" href="components/course/css/course.css">
+  <link rel="stylesheet" href="components/login/css/signin.css">
+  <link rel="stylesheet" href="components/all-courses/css/all-courses.css">
+
+</head>
+<body>
+  <div id="wrapper">
+    <header class="page-header header-menu" ng-if="user.name">
+      <a class="btn btn-success navbar-left link-to-courses"
+         type="button"
+         href="/Angular_SPA_Courses/#/">home&nbsp;<span class="glyphicon glyphicon-home"></span></a>
+      <strong class="user-profile">
+        <span class="text-success">{{user.name}}</span>&nbsp;
+        <span class="glyphicon glyphicon-user"></span>
+      </strong>
+      <button class="btn btn-primary"
+              id="logout-btn"
+              type="button"
+              ng-click="logout()">Logout &nbsp;<span class="glyphicon glyphicon-log-out"></span></button>
+    </header>
+
+    <!-- Content -->
+    <div ui-view class="page-content"></div>
+
+    <footer class="panel-footer text-center" ng-if="user.name">
+      <strong>Copyright © 2016 Courses app. All rights reserved.</strong>
+    </footer>
+  </div>
+
+  <!-- vendors -->
+  <script src="vendors/jquery/jquery.min.js"></script>
+  <script src="vendors/angularjs/1.5.0/angular.js"></script>
+  <script src="vendors/angularjs/1.5.0/angular-resource.min.js"></script>
+  <script src="vendors/angularjs/1.5.0/angular-mocks.js"></script>
+  <script src="vendors/angular-ui-router/angular-ui-router.min.js"></script>
+  <script src="vendors/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+  <script src="vendors/angular-ui-bootstrap/0.12.1/ui-bootstrap.js"></script>
+  <script src="vendors/angular-ui-bootstrap/0.12.1/ui-bootstrap-tpls.js"></script>
+  <script src="vendors/ngStorage/ngStorage.min.js"></script>
+  <script src="vendors/ng-table/ng-table.min.js"></script>
+  <!-- modules -->
+  <script src="components/login/login.module.js"></script>
+  <script src="components/all-courses/all-courses.module.js"></script>
+  <script src="components/course/course.module.js"></script>
+  <!-- controllers -->
+  <script src="components/login/controllers/authentication.controller.js"></script>
+  <script src="components/all-courses/controllers/all-courses.controller.js"></script>
+  <script src="components/course/controllers/course.controller.js"></script>
+  <script src="components/all-courses/controllers/modal-dialog.controller.js"></script>
+  <!-- services -->
+  <script src="components/login/services/checkAccess.service.js"></script>
+  <script src="components/login/services/login-api.factory.js"></script>
+  <script src="components/all-courses/services/all-courses-api.factory.js"></script>
+  <script src="components/course/services/course-api.factory.js"></script>
+  <!-- filters -->
+  <script src="components/all-courses/filters/all-courses.filter.js"></script>
+  <!-- directives -->
+  <script src="components/course/directives/authors.directive.js"></script>
+  <!-- templates -->
+  <script type="text/ng-template" id="myModal.html">
+    <div>
+      <div class="modal-header">
+        <h3 class="modal-title">Course delete</h3>
+      </div>
+      <div class="modal-body">
+        Are you sure?
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-warning" ng-click="ok()">OK</button>
+        <button class="btn btn-success" ng-click="cancel()">Cancel</button>
+      </div>
+    </div>
+  </script>
+  <!-- application -->
+  <script src="app.js"></script>
+</body>
+</html>
